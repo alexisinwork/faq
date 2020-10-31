@@ -1,5 +1,9 @@
 # Relevant stuff
 .env
+backend/node_modules
+frontend/node_modules
+backend/.next
+frontend/.next
 
 # Other files and folders
 .vscode
