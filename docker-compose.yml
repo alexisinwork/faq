@@ -1,0 +1,28 @@
+version: "2"
+
+services:
+    client:
+        build: frontend
+        restart: always
+        ports: 
+            - "12000:12000"
+        volumes: 
+            - ./frontend:/frontend
+            - /frontend/node_modules
+        links:
+            - api
+        networks:
+            - webappnetwork
+    api:
+        build: backend
+        restart: always
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./backend:/backend
+            - /api/node_modules
+        networks: 
+            - webappnetwork
+networks:
+    webappnetwork:
+        driver: bridge

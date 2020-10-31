@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\nimport { lieferandoLogo } from './layout.module.css';\nexport default (() => __jsx(\"div\", null, __jsx(\"img\", {\n  className: lieferandoLogo,\n  src: \"/lieferando.png\",\n  alt: \"Lieferando logo\",\n  width: \"150\",\n  height: \"30\"\n})));","map":null,"metadata":{},"sourceType":"module"}

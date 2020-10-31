@@ -1,0 +1,76 @@
+.layoutBody {
+  position: relative;
+  min-height: 100vh;
+}
+.lieferandoLogo {
+    margin-top: 1%;
+    margin-left: 10%;
+}
+.mainHeader {
+    height: 321px;
+    position: relative;
+    overflow: hidden;
+    padding-right: 10%;
+    padding-top: 1%;
+    background-color: #ff8000;
+}
+.headerSvg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10vw;
+    /* set height to pixels if you want angle to change with screen width */
+  }
+  .footerSvg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 10vw; 
+  }
+.mainContent {
+    padding: 2.5% 10% 9.5rem 10%;
+}
+.mainFooter {
+    background-color: #113847;
+    height: 5rem;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    color: white;
+    text-align: center;
+    line-height: 5rem;
+}
+.headerBg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ff8000;
+    transform: skewY(-6deg);
+    transform-origin: top left;
+}
+.headerContent {
+    position: relative;
+}
+.footerContactUs {
+    height: 421px;
+    background-color: #f8f5f2;
+    position: relative;
+}
+.footerContactUs div {
+    position: relative;
+    top: 50%;
+    text-align: center;
+}
+.footerContactUs div h3 {
+    color: #0a3847;
+    font-size: 24px;
+    
+}
+.footerContactUs div a {
+    color: #1574f5;
+    
+}

@@ -1,0 +1,24 @@
+{
+  "name": "frontend",
+  "version": "0.0.1",
+  "description": "Frontend FAQ App Challenge",
+  "main": "src/app.js",
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev -p 12000",
+    "start": "next start -p 12000",
+    "pretest": "eslint src/ --ext .js,.jsx,.ts,.tsx --fix",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "next": "^9.5.2",
+    "next-images": "^1.4.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.3.0",
+    "react-dom": "^16.13.1"
+  }
+}
