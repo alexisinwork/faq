@@ -1,2 +1,2 @@
-# faq
+# FAQ
 Fullstack FAQ simple project
