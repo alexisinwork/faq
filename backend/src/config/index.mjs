@@ -1,5 +1,6 @@
-import { ORDERS } from "./orders"
+import { ORDERS } from './orders';
+import { PAGE_VIEWS } from './pageViews';
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000;
 
-export { ORDERS, PORT }
+export { ORDERS, PAGE_VIEWS, PORT };

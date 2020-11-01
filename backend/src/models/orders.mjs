@@ -1,18 +1,12 @@
-import mongoose from 'mongoose'
-const Schema = mongoose.Schema
+import mongoose from 'mongoose';
 
-const orderSchema = new Schema ({     
-    reference: { type: String, required: true },
-    date: { type: Date, required: true },
-    delivered: { type: Boolean, required: true },
-    cost: { type: Number, required: true },
-})
+const { Schema } = mongoose;
 
-// orderSchema.methods.speak = function () {
-//     const greeting = this.name
-//       ? "Meow name is " + this.name
-//       : "I don't have a name";
-//     console.log(greeting);
-//   }
+const orderSchema = new Schema({
+  reference: { type: String, required: true },
+  date: { type: Date, required: true },
+  delivered: { type: Boolean, required: true },
+  cost: { type: Number, required: true },
+});
 
-export default mongoose.model('Order', orderSchema)
+export default mongoose.model('Order', orderSchema);

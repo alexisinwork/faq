@@ -34,6 +34,5 @@ export const ORDERS = [
     date: new Date(2020, 3, 23),
     delivered: true,
     cost: 24.60,
-  }
+  },
 ];
-

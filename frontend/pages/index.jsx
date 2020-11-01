@@ -1,13 +1,6 @@
 import Layout from '../components/layout';
 
 export default function App() {
-  const callDB = () => {
-    fetch("http://localhost:3000/db")
-        .then(res => res.text())
-        .then(res => this.setState({ apiResponse: res }))
-        .catch(err => err)
-  }
-
   const callAPI = () => {
     callDB()
 
