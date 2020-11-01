@@ -132,3 +132,4 @@ hence, we ask that you do not squash the commits.
 * [Anirvan Bhaduri](mailto:anirvan.bhaduri@takeaway.com)
 * [Erkand Imeri](mailto:erkand.imeri@takeaway.com)
 * [Milos Jovanovic](mailto:milos.jovanovic@takeaway.com)
+* [Oleksandr Kukhtin](mailto:alexisinwork@gmail.com)
