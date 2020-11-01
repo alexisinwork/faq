@@ -83,6 +83,6 @@ app.use((err, req, res) => {
   res.render('error');
 });
 
-app.listen(config.PORT);
+app.listen(config.PORT, () => () => console.log(`Example app listening on port ${port}!`));
 
 export default app;

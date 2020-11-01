@@ -1,19 +1,19 @@
 import {
-        mainHeader,
-        mainFooter,
-        mainContent,
-        headerContent,
-        layoutBody,
-        headerSvg,
-        footerContactUs,
-        footerSvg
+    mainHeader,
+    mainFooter,
+    mainContent,
+    headerContent,
+    layoutBody,
+    headerSvg,
+    footerContactUs,
+    footerSvg
 } from './layout.module.css';
 
 import LieferandoLogo from './LieferandoLogo';
 
 export default function Layout (props) {
     return (
-    <div className={layoutBody}>
+      <div className={layoutBody}>
         <header className={mainHeader}>
         <svg className={headerSvg} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
             <polygon fill="white" points="0,100 100,0 100,100"/>
@@ -39,6 +39,6 @@ export default function Layout (props) {
         <footer className={mainFooter}>
             Takeaway.com
         </footer>
-    </div>
+      </div>
     );
 }

@@ -1,8 +1,14 @@
-version: "2"
+version: "3"
 
 services:
     client:
-        build: frontend
+        container_name: client
+        build: 
+            context: frontend/
+        environment:
+            - API_URL=http://api:3000/api
+        depends_on:
+            - api
         restart: always
         ports: 
             - "12000:12000"
@@ -12,7 +18,7 @@ services:
         links:
             - api
         networks:
-            - webappnetwork
+            - frontend
     api:
         build: backend
         restart: always
@@ -22,7 +28,7 @@ services:
             - ./backend:/backend
             - /api/node_modules
         networks: 
-            - webappnetwork
+            - frontend
 networks:
-    webappnetwork:
+    frontend:
         driver: bridge

@@ -8,7 +8,8 @@
     "dev": "next dev -p 12000",
     "start": "next start -p 12000",
     "pretest": "eslint --ext .js,.jsx,.ts,.tsx --fix",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "author": "",
   "license": "ISC",
@@ -22,11 +23,26 @@
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/react": "^11.1.0",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.6.1",
+    "chai": "^4.2.0",
+    "dotenv": "^8.2.0",
     "eslint": "^7.12.1",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jest": "^24.1.0",
-    "jest": "^26.6.1"
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.6.1",
+    "webpack": "^5.3.2"
+  },
+  "jest": {
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(js|jsx)$",
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx"
+    ]
   }
 }

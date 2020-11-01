@@ -14,7 +14,7 @@ export async function getStaticProps() {
   // Storing page view on any route render
   await updatePageView('order-details')
   // Call an external API endpoint to get posts
-  const res = await fetch('http://localhost:3000/api/orders')
+  const res = await fetch(`${process.env.API_URL}/orders`)
   const orders = await res.json();
 
   return {
