@@ -11,9 +11,9 @@ import rateLimit from 'express-rate-limit';
 import xss from 'xss-clean';
 import mongoSanitize from 'express-mongo-sanitize';
 
-import testDBRouter from './routes/testDB';
-import ordersRouter from './routes/orders';
-import pageViewsRouter from './routes/pageViews';
+import testDBRouter from './routes/testDB.mjs';
+import ordersRouter from './routes/orders.mjs';
+import pageViewsRouter from './routes/pageViews.mjs';
 
 import * as config from './config';
 
@@ -25,7 +25,7 @@ const uri = 'mongodb+srv://alexito:uZ79t70lNgNEO7iU@cluster0.xrvfj.mongodb.net/f
 mongoose.connect(uri);
 
 // view engine setup
-app.set('views', path.join(__dirname, 'src/views'));
+app.set('views', path.join(dirname, 'src/views'));
 app.set('view engine', 'jade');
 
 // adding Helmet to enhance your API's security
