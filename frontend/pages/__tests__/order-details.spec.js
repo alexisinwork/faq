@@ -1,10 +1,17 @@
 import React from 'react'
 import { render, fireEvent, screen, waitFor } from '@testing-library/react'
-import OrderDetails from '../order-details'
+import OrderDetails from '../order-details/[orderRef]'
 import { ORDERS } from '../../utils/mocks/mockedOrders'
 
-const setup = () => {
-  const wrapper = render(<OrderDetails orders={ORDERS} />)
+const setup = (orderRef = 'AXG543') => {
+  const wrapper = render(withTestRouter(
+    <OrderDetails orders={ORDERS} />,
+    {
+      push,
+      pathname: `/order-details/${orderRef}`,
+      query = { orderRef }
+    }
+  ))
 
   const heading = wrapper.getByTestId('heading')
   const searchInput = wrapper.getByTestId('order-search')
@@ -14,11 +21,6 @@ const setup = () => {
   const orderIcon = wrapper.getByTestId('order-icon')
   const orderDeliveryStatus = wrapper.getByTestId('order-delivery-status')
   const orderCost = wrapper.getByTestId('order-cost')
-
-  const showOrder = async (ref = 'AXG543') => {
-    fireEvent.change(searchInput, { target: { value: ref } })
-    fireEvent.click(searchBtn)
-  }
 
   return {
     heading,
@@ -46,22 +48,9 @@ describe('<OrderDetails /> ', () => {
       expect(searchInput).toBeDefined()
     })
 
-    it('interactable', async () => {
-      const { searchInput } = setup()
-      fireEvent.change(searchInput, { target: { value: 'AXG543' } })
-      expect(searchInput.value).toBe('AXG543')
-    })
-
-    describe('has clickable Next button', async () => {
-      it('visible', () => {
-        const { searchBtn } = setup()
-        expect(searchBtn).toBeDefined()
-      })
-
-      it('has text "Next"', () => {
-        const { searchBtn } = setup()
-        expect(searchBtn).toHaveTextContent('Next')
-      })
+    it('has visible button', () => {
+      const { searchBtn } = setup()
+      expect(searchBtn).toBeDefined()
     })
   })
 

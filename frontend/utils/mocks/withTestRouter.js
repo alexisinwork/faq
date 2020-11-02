@@ -8,7 +8,7 @@ export default function withTestRouter(
   const {
     route = "",
     pathname = "",
-    query = {},
+    query = { },
     asPath = "",
     push = async () => true,
     replace = async () => true,

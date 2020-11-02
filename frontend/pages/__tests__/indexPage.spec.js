@@ -27,10 +27,7 @@ const setup = () => {
     ...wrapper,
   }
 }
-// fireEvent.click(screen.getByText('Load Greeting'))
-// await waitFor(() => screen.getByRole('heading'))
-// expect(screen.getByTestId('heading')).toHaveTextContent('hello there')
-// expect(screen.getByTestId('button')).toHaveAttribute('disabled')
+
 describe('<App /> ', () => {
   it('loads and displays header', () => {
     const { heading } = setup()

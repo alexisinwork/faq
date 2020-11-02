@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import Layout from '../components/layout';
 import { useRouter } from 'next/router'
 import updatePageView from '../utils/updatePageView'
