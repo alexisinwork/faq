@@ -12,21 +12,21 @@ import xss from 'xss-clean';
 import mongoSanitize from 'express-mongo-sanitize';
 import dotenv from 'dotenv';
 
-import testDBRouter from './routes/testDB.mjs';
-import ordersRouter from './routes/orders.mjs';
-import pageViewsRouter from './routes/pageViews.mjs';
+import testDBRouter from './routes/testDB';
+import ordersRouter from './routes/orders';
+import pageViewsRouter from './routes/pageViews';
 
 import * as config from './config';
 
-const runConfig = () => dotenv.config()
+const runConfig = () => dotenv.config();
 const dirname = path.resolve();
 const app = express();
-runConfig()
+runConfig();
 
 // Connecting to MongoDB
-const user = process.env.MONGO_USER
-const pass = process.env.MONGO_PASSWORD
-const dbName = process.env.MONGO_DB
+const user = process.env.MONGO_USER;
+const pass = process.env.MONGO_PASSWORD;
+const dbName = process.env.MONGO_DB;
 const uri = `mongodb+srv://${user}:${pass}@${dbName}/faq?retryWrites=true&w=majority`;
 
 mongoose.connect(uri);
@@ -90,6 +90,6 @@ app.use((err, req, res) => {
   res.render('error');
 });
 
-app.listen(config.PORT, () => () => console.log(`Example app listening on port ${port}!`));
+app.listen(config.PORT);
 
 export default app;

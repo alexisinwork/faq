@@ -1,26 +1,33 @@
 import React from 'react'
-import { render, fireEvent, screen, waitFor } from '@testing-library/react'
+import { render, fireEvent, screen } from '@testing-library/react'
 import OrderDetails from '../order-details/[orderRef]'
+import withTestRouter from '../../utils/mocks/withTestRouter'
 import { ORDERS } from '../../utils/mocks/mockedOrders'
 
 const setup = (orderRef = 'AXG543') => {
+  let heading, searchInput, searchBtn, orderWrapper,
+      orderReference, orderDeliveryStatus, orderCost
+  const push = jest.fn();
+
   const wrapper = render(withTestRouter(
     <OrderDetails orders={ORDERS} />,
     {
       push,
       pathname: `/order-details/${orderRef}`,
-      query = { orderRef }
+      query: { orderRef }
     }
   ))
 
-  const heading = wrapper.getByTestId('heading')
-  const searchInput = wrapper.getByTestId('order-search')
-  const searchBtn = wrapper.getByTestId('search-button')
-  const orderWrapper = wrapper.getByTestId('order')
-  const orderReference = wrapper.getByTestId('order-reference')
-  const orderIcon = wrapper.getByTestId('order-icon')
-  const orderDeliveryStatus = wrapper.getByTestId('order-delivery-status')
-  const orderCost = wrapper.getByTestId('order-cost')
+  heading = wrapper.getByTestId('heading')
+  searchInput = wrapper.getByTestId('order-search')
+  searchBtn = wrapper.getByTestId('search-button')
+
+  if (ORDERS.find(order => order.reference === orderRef)) {
+    orderWrapper = wrapper.getByTestId('order')
+    orderReference = wrapper.getByTestId('order-reference')
+    orderDeliveryStatus = wrapper.getByTestId('order-delivery-status')
+    orderCost = wrapper.getByTestId('order-cost')
+  }
 
   return {
     heading,
@@ -28,10 +35,9 @@ const setup = (orderRef = 'AXG543') => {
     searchBtn,
     orderWrapper,
     orderReference,
-    orderIcon,
     orderDeliveryStatus,
     orderCost,
-    showOrder,
+    push,
     ...wrapper,
   }
 }
@@ -52,43 +58,44 @@ describe('<OrderDetails /> ', () => {
       const { searchBtn } = setup()
       expect(searchBtn).toBeDefined()
     })
+
+    it('reloading to /AXG543', () => {
+      const { searchBtn, push } = setup()
+      fireEvent.click(searchBtn)
+      expect(push).toHaveBeenCalledWith("AXG543");
+    })
   })
 
   describe('has an Order wrapper that is', () => {
-    it('not visible', () => {
-      const { orderWrapper } = setup()
+    it('not visible for non-existent order', () => {
+      const { orderWrapper } = setup('123')
       expect(orderWrapper).not.toBeDefined()
     })
 
-    it('visible after search', async () => {
-      const { orderWrapper, showOrder } = setup()
-      await showOrder()
+    it('visible after search if order exist', () => {
+      const { orderWrapper } = setup()
       expect(orderWrapper).toBeDefined()
     })
 
-    describe('and has ', () => {
-      it('order reference', async () => {
-        const { orderReference, showOrder } = setup()
-        await showOrder()
+    describe('and has', () => {
+      it('order reference', () => {
+        const { orderReference } = setup()
         expect(orderReference).toHaveTextContent('AXG543')
       })
 
-      it('order delivery icon', async () => {
-        const { orderIcon, showOrder } = setup()
-        await showOrder()
-        expect(orderIcon).toBeDefined()
+      it('order delivery status', () => {
+        const { orderDeliveryStatus } = setup()
+        expect(orderDeliveryStatus).toHaveTextContent('Not delivered')
       })
 
-      it('order delivery status', async () => {
-        const { orderDeliveryStatus, showOrder } = setup()
-        await showOrder()
-        expect(orderDeliveryStatus).toBeDefined('Not delivered')
+      it('order delivery status', () => {
+        const { orderDeliveryStatus } = setup('ATU499')
+        expect(orderDeliveryStatus).toHaveTextContent('Delivered')
       })
 
-      it('order cost', async () => {
-        const { orderCost, showOrder } = setup()
-        await showOrder()
-        expect(orderCost).toHaveTextContent('8.20')
+      it('order cost', () => {
+        const { orderCost } = setup()
+        expect(orderCost).toHaveTextContent('8.2')
       })
     })
   })

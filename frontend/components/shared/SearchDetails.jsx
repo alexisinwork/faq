@@ -24,7 +24,7 @@ const SearchInput = ({
   return (
     <Container className={className}>
       <Row>
-        <Col xs={12} sm={12} md={8} lg={10} xl={10}>
+        <Col xs={8} sm={8} md={8} lg={10} xl={10}>
           <InputGroup size="lg">
             <InputGroup.Prepend>
               <InputGroup.Text style={iconStyles}>
@@ -41,7 +41,7 @@ const SearchInput = ({
             />
           </InputGroup>
         </Col>
-        <Col className="text-right" xs={12} sm={12} md={4} lg={2} xl={2}>
+        <Col className="text-right" xs={4} sm={4} md={4} lg={2} xl={2}>
           <Button 
             data-testid={submitId}
             disabled={!searchInput}
