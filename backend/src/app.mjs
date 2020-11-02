@@ -10,6 +10,7 @@ import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import xss from 'xss-clean';
 import mongoSanitize from 'express-mongo-sanitize';
+import dotenv from 'dotenv';
 
 import testDBRouter from './routes/testDB.mjs';
 import ordersRouter from './routes/orders.mjs';
@@ -17,14 +18,17 @@ import pageViewsRouter from './routes/pageViews.mjs';
 
 import * as config from './config';
 
+const runConfig = () => dotenv.config()
 const dirname = path.resolve();
 const app = express();
+runConfig()
 
 // Connecting to MongoDB
 const user = process.env.MONGO_USER
 const pass = process.env.MONGO_PASSWORD
 const dbName = process.env.MONGO_DB
 const uri = `mongodb+srv://${user}:${pass}@${dbName}/faq?retryWrites=true&w=majority`;
+
 mongoose.connect(uri);
 
 // view engine setup

@@ -1,5 +1,4 @@
 import React from "react";
-import { NextRouter } from "next/router";
 import { RouterContext } from "next/dist/next-server/lib/router-context";
 
 export default function withTestRouter(

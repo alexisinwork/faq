@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
-import withTestRouter from '../../../utils/withTestRouter'
+import withTestRouter from '../../utils/mocks/withTestRouter'
 import App from '..'
 
 const setup = () => {

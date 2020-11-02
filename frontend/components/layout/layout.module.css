@@ -1,6 +1,6 @@
 .layoutBody {
-  position: relative;
-  min-height: 100vh;
+    position: relative;
+    min-height: 100vh;
 }
 .lieferandoLogo {
     margin-top: 1%;
@@ -20,13 +20,13 @@
     width: 100%;
     height: 10vw;
     /* set height to pixels if you want angle to change with screen width */
-  }
-  .footerSvg {
+}
+.footerSvg {
     position: absolute;
     top: 0;
     width: 100%;
-    height: 10vw; 
-  }
+    height: 10vw;
+}
 .mainContent {
     padding: 2.5% 10% 9.5rem 10%;
 }
@@ -68,9 +68,7 @@
 .footerContactUs div h3 {
     color: #0a3847;
     font-size: 24px;
-    
 }
 .footerContactUs div a {
     color: #1574f5;
-    
 }
