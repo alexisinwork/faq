@@ -11,8 +11,8 @@ COPY components ./components
 COPY pages ./pages
 COPY public ./public
 COPY utils ./utils
-COPY .babelrc next.config.js entrypoint.sh ./
+COPY .babelrc next.config.js config.js ./
 # Make port 12000 available to the world outside this container
 EXPOSE 12000
 # Build and run the app when the container launches
-CMD ./entrypoint.sh
+CMD npm run build ; npm start

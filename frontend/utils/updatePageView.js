@@ -1,7 +1,8 @@
+import API_URL from '../config'
 // Storing page view on any route render
 export default async function updatePageView (page) {
     return await fetch(
-        `http://localhost:3000/api/page-views/${page}`,
+        `${API_URL}/page-views/${page}`,
         {
         // Adding method type 
         method: "POST", 

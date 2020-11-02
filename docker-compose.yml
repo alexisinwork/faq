@@ -17,5 +17,9 @@ services:
        build:
            context: backend/
        restart: always
+       environment:
+            - MONGO_USER=alexito
+            - MONGO_PASSWORD=uZ79t70lNgNEO7iU
+            - MONGO_DB=cluster0.xrvfj.mongodb.net
        ports:
            - 3000:3000

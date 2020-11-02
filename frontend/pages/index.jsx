@@ -91,7 +91,7 @@ function App() {
 };
 
 // This function gets called at build time
-export async function getStaticProps() {
+export async function getServerSideProps() {
   // Storing page view on any route render
   await updatePageView('home')
   return {

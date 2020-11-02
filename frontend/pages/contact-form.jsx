@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from '../components/layout';
 import updatePageView from '../utils/updatePageView'
+import API_URL from '../config'
 
 function ContactForm({ orders }) {
   return (
@@ -14,11 +15,11 @@ function ContactForm({ orders }) {
 };
 
 // This function gets called at build time
-export async function getStaticProps() {
+export async function getServerSideProps() {
   // Storing page view on any route render
   await updatePageView('order-details')
   // Call an external API endpoint to get posts
-  const res = await fetch(`${process.env.API_URL}/orders`)
+  const res = await fetch(`${API_URL}/orders`)
   const orders = await res.json();
 
   return {

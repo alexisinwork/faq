@@ -21,7 +21,10 @@ const dirname = path.resolve();
 const app = express();
 
 // Connecting to MongoDB
-const uri = 'mongodb+srv://alexito:uZ79t70lNgNEO7iU@cluster0.xrvfj.mongodb.net/faq?retryWrites=true&w=majority';
+const user = process.env.MONGO_USER
+const pass = process.env.MONGO_PASSWORD
+const dbName = process.env.MONGO_DB
+const uri = `mongodb+srv://${user}:${pass}@${dbName}/faq?retryWrites=true&w=majority`;
 mongoose.connect(uri);
 
 // view engine setup
