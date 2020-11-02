@@ -5,6 +5,14 @@
 This repository contains the FAQ App challenge used for on-boarding new candidates
 to the CCARE team.
 
+## Demo
+
+## Screenshots
+
+![Screenshot](screenshots/home.jpg)
+![Screenshot](screenshots/orders.jpg)
+![Screenshot](screenshots/contact.jpg)
+
 ## Getting Started
 
 For this challenge, we have provided you with a Makefile, making it easy to
