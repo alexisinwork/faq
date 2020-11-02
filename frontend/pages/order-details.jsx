@@ -2,7 +2,7 @@ import Layout from '../components/layout';
 import updatePageView from '../utils/updatePageView'
 import API_URL from '../config'
 
-function Orders({ orders }) {
+function OrderDetails({ orders }) {
   return (
     <Layout>
       <h1>Orders</h1>
@@ -25,4 +25,4 @@ export async function getServerSideProps() {
   };
 }
 
-export default Orders
+export default OrderDetails
