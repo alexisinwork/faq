@@ -10,8 +10,6 @@ to the CCARE team.
 ## Screenshots
 
 ![Screenshot](screenshots/home.jpg)
-![Screenshot](screenshots/orders.jpg)
-![Screenshot](screenshots/contact.jpg)
 
 ## Getting Started
 
