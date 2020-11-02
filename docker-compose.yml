@@ -1,34 +1,21 @@
 version: "3"
-
+ 
 services:
     client:
-        container_name: client
-        build: 
-            context: frontend/
-        environment:
-            - API_URL=http://api:3000/api
-        depends_on:
+       container_name: client
+       build:
+           context: frontend/
+       restart: always
+       depends_on:
             - api
-        restart: always
-        ports: 
-            - "12000:12000"
-        volumes: 
-            - ./frontend:/frontend
-            - /frontend/node_modules
-        links:
-            - api
-        networks:
-            - frontend
+       ports:
+           - 12000:12000
+       environment:
+           - API_BASE_URL=http://api:3000
     api:
-        build: backend
-        restart: always
-        ports:
-            - "3000:3000"
-        volumes:
-            - ./backend:/backend
-            - /api/node_modules
-        networks: 
-            - frontend
-networks:
-    frontend:
-        driver: bridge
+       container_name: api
+       build:
+           context: backend/
+       restart: always
+       ports:
+           - 3000:3000

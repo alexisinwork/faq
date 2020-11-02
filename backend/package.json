@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "pretest": "eslint src/** --ext .js,.jsx,.ts,.tsx,.mjs --fix",
-    "start": "npx nodemon -r esm src/app.mjs",
+    "start": "node -r esm src/app.mjs",
     "test": "jest src --passWithNoTests",
     "coverage": "jest --collectCoverageFrom=src/**.mjs --coverage src"
   },
