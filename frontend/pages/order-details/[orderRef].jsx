@@ -60,7 +60,7 @@ function OrderDetails({ orders }) {
                 </Row>
               </Container>
             </div>
-          : <div className="text-center">Cannot find order</div>
+          : <p className="text-center mt-4 h4">Cannot find order</p>
       }
     </Layout>
   );
